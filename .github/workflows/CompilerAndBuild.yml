@@ -23,6 +23,7 @@ jobs:
           - Android # Build an Android .apk standalone app.
           - WebGL # WebGL.
     steps:
+      - uses: webbertakken/unity-request-activation-file@v2.0-alpha-1
       - uses: actions/checkout@v2
         with:
           lfs: true
