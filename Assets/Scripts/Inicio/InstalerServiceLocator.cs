@@ -10,7 +10,8 @@ public class InstalerServiceLocator : MonoBehaviour
         IServicioDeGuardado nube = new ServicioDePlayFabnube(titlId);
         ServiceLocator.Instance.RegisterService(nube);
 
-        ILogicaDeCalculoDePuntuaciones logica = new LogicaDeCalculosDePuncuacion();
+        IGuardadoLocalDeDatos sistemaDeGuardadoLocal = new GuardadoLocalDeDatos();
+        ILogicaDeCalculoDePuntuaciones logica = new LogicaDeCalculosDePuncuacion(sistemaDeGuardadoLocal);
         ServiceLocator.Instance.RegisterService(logica);
 
         DontDestroyOnLoad(gameObject);

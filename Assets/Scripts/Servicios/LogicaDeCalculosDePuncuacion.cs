@@ -3,22 +3,28 @@
 public class LogicaDeCalculosDePuncuacion : ILogicaDeCalculoDePuntuaciones
 {
     private string _puntuacion = "puntuacion";
+    private IGuardadoLocalDeDatos _guardadoLocal;
+
+    public LogicaDeCalculosDePuncuacion(IGuardadoLocalDeDatos metodoDeGuardado)
+    {
+        _guardadoLocal = metodoDeGuardado;
+    }
 
     public int AumentarPuntuacion()
     {
-        var puntuacion = PlayerPrefs.GetInt(_puntuacion);
-        puntuacion++;
-        PlayerPrefs.SetInt(_puntuacion, puntuacion);
+        var puntuacion = _guardadoLocal.GetInt(_puntuacion);
+        puntuacion+=1;
+        _guardadoLocal.SetInt(_puntuacion, puntuacion);
         return puntuacion;
     }
 
     public void ActualizarPuntuacion(int puntuacion)
     {
-        PlayerPrefs.SetInt(_puntuacion, puntuacion);
+        _guardadoLocal.SetInt(_puntuacion, puntuacion);
     }
 
     public int GetPuntuacion()
     {
-        return PlayerPrefs.GetInt(_puntuacion);
+        return _guardadoLocal.GetInt(_puntuacion);
     }
 }
