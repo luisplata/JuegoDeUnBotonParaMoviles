@@ -5,13 +5,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ServicioDePlayFabnube : IServicioDePlayFabNube
+public class ServicioDePlayFabnube : IServicioDeGuardado
 {
     private string _titleIdLocal;
+    private IConversorDeJson conversor;
 
     public ServicioDePlayFabnube(string titleId)
     {
         _titleIdLocal = titleId;
+        conversor = new ConversorDeJson();
     }
 
     public DatoDelCliente ConsultarData()
@@ -24,7 +26,7 @@ public class ServicioDePlayFabnube : IServicioDePlayFabNube
         PlayFabClientAPI.GetUserData(req, ok => 
         {
             var datos = ok.Data["configuracionDelUsuario"];
-            datodDelCliente = JsonUtility.FromJson<DatoDelCliente>(datos.Value);
+            datodDelCliente = conversor.JsonToType<DatoDelCliente>(datos.Value);
         }, OnLoginFailure);
 
         return datodDelCliente;

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-public interface IServicioDePlayFabNube
+public interface IServicioDeGuardado
 {
 
     Task<bool> UsuarioEsValido();
