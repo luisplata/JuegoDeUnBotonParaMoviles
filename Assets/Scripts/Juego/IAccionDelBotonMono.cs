@@ -2,5 +2,7 @@
 {
     void ActualizarPuntuacion(int puntuacion);
     void ReinciarTiempoDeEspera();
-    bool YaGuardoData { get; set; }
+    void BailandoLeft();
+    void BailandoRight();
+    void BailandoCenter();
 }

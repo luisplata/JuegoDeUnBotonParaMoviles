@@ -1,42 +1,55 @@
 ﻿using TMPro;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PlayFab.ClientModels;
-using PlayFab;
 
 public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
 {
     [SerializeField] private Button boton;
     [SerializeField] private TextMeshProUGUI textoPuntuacion;
+    [SerializeField] private float tiempoQueTieneQueDejarDePrecionarElBoton;
+    [SerializeField] private Sprite caramellDancenLeft, caramellDancenRight, caramellDancenCenter;
+    [SerializeField] private SpriteRenderer dancer;
     private Boton logicaBoton;
     private float deltaTimeLocal;
-    [SerializeField] private float tiempoQueTieneQueDejarDePrecionarElBoton;
-
-    public bool YaGuardoData { get; set; }
+    
 
     public void ActualizarPuntuacion(int puntuacion)
     {
         textoPuntuacion.text = puntuacion.ToString();
     }
 
+    public void BailandoCenter()
+    {
+        dancer.sprite = caramellDancenCenter;
+    }
+
+    public void BailandoLeft()
+    {
+        dancer.sprite = caramellDancenLeft;
+    }
+
+    public void BailandoRight()
+    {
+        dancer.sprite = caramellDancenRight;
+    }
+
     public void ReinciarTiempoDeEspera()
     {
         deltaTimeLocal = 0;
-        YaGuardoData = false;
     }
 
     // Start is called before the first frame update
-    async void Start()
+    public void Start()
     {
         logicaBoton = new Boton(this);
         boton.onClick.AddListener(() => { logicaBoton.AumentandoPuntuacion(); });
-        YaGuardoData = true;
+        logicaBoton.YaGuardoData = true;
+        BailandoCenter();
     }
 
     private void Update()
     {
         deltaTimeLocal += Time.deltaTime;
-        logicaBoton.TerminoElTiempoDeEsperaParaQueGuardeEnLaNube(deltaTimeLocal, tiempoQueTieneQueDejarDePrecionarElBoton, YaGuardoData);
+        logicaBoton.TerminoElTiempoDeEsperaParaQueGuardeEnLaNube(deltaTimeLocal, tiempoQueTieneQueDejarDePrecionarElBoton);
     }
 }

@@ -12,7 +12,8 @@ namespace Tests
         [Test]
         public void CuandoPresionenElBoton_DebeActualizarseLaUIConLoQueTraeDelServiceLocator()
         {
-            //constuir el service locator
+            //arrage
+            ServiceLocator.Instance.ClearAll();
             var logicaDeCalculos = Substitute.For<ILogicaDeCalculoDePuntuaciones>();
             logicaDeCalculos.AumentarPuntuacion().Returns(2);
 
@@ -28,5 +29,33 @@ namespace Tests
             subAccionMono.Received(1).ActualizarPuntuacion(2);
             subAccionMono.Received(1).ReinciarTiempoDeEspera();
         }
+
+        [Test]
+        public void CuandoPresionenElBoton_DebeGuardarSiEsTiempoDeHacerlo()
+        {
+            //arrage
+            ServiceLocator.Instance.ClearAll();
+            var logicaDeCalculos = Substitute.For<ILogicaDeCalculoDePuntuaciones>();
+            logicaDeCalculos.AumentarPuntuacion().Returns(2);
+
+            ServiceLocator.Instance.RegisterService(logicaDeCalculos);
+
+            var subAccionMono = Substitute.For<IAccionDelBotonMono>();
+
+            Boton boton = new Boton(subAccionMono)
+            {
+                //act
+                YaGuardoData = false
+            };
+
+            boton.AumentandoPuntuacion();
+
+            //Assert
+            logicaDeCalculos.Received(1).ActualizarPuntuacion(2);
+            boton.AumentandoPuntuacion();
+            logicaDeCalculos.Received(1).ActualizarPuntuacion(2);
+
+        }
+        
     }
 }

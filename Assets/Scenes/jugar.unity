@@ -121,6 +121,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &189138504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8894250184528051557, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_Name
+      value: ServiceLocator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051558, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: cortina
+      value: 
+      objectReference: {fileID: 1156066811}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894250184528051559, guid: 6e94758d0a0084145875bebcdc32b8ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e94758d0a0084145875bebcdc32b8ce, type: 3}
 --- !u!1 &194415678
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +227,13 @@ MonoBehaviour:
   boton: {fileID: 571647789}
   textoPuntuacion: {fileID: 1093980361}
   tiempoQueTieneQueDejarDePrecionarElBoton: 2
+  caramellDancenLeft: {fileID: -8036093327607760740, guid: 1869ed71371cbbd45a9f45f30688deba,
+    type: 3}
+  caramellDancenRight: {fileID: -1838308925225109639, guid: 1869ed71371cbbd45a9f45f30688deba,
+    type: 3}
+  caramellDancenCenter: {fileID: 2938847891992538663, guid: 1869ed71371cbbd45a9f45f30688deba,
+    type: 3}
+  dancer: {fileID: 1679843275}
 --- !u!4 &194415680
 Transform:
   m_ObjectHideFlags: 0
@@ -608,6 +689,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093980359}
   m_CullTransparentMesh: 0
+--- !u!114 &1156066811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1156066811, guid: 6e94758d0a0084145875bebcdc32b8ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 189138504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188592839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1419,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679843273}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 39390ef86f34b6245ab68693d6b6827b, type: 2}
   m_CullingMode: 0

@@ -10,9 +10,10 @@ public class ControladorDeBotones : MonoBehaviour
     void Start()
     {
         boton.onClick.AddListener(delegate { CargarEscena(escenaCargar); });
+        ServiceLocator.Instance.GetService<ITransicionEscenaMono>().OnTransicion();
     }
     public void CargarEscena(int escenaIndex)
     {
-        SceneManager.LoadScene(escenaIndex);
+        ServiceLocator.Instance.GetService<ITransicionEscenaMono>().OnTransicion(escenaIndex);
     }
 }
