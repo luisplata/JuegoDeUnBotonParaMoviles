@@ -31,7 +31,7 @@ namespace Tests
         }
 
         [Test]
-        public void CuandoPresionenElBoton_DebeGuardarSiEsTiempoDeHacerlo()
+        public void CuandoPresionenElBoton_DebeGuardarLocalmenteSinImportarCuantasVecesLeDemos()
         {
             //arrage
             ServiceLocator.Instance.ClearAll();
@@ -44,16 +44,15 @@ namespace Tests
 
             Boton boton = new Boton(subAccionMono)
             {
-                //act
                 YaGuardoData = false
             };
 
+            //act
+            boton.AumentandoPuntuacion();
             boton.AumentandoPuntuacion();
 
             //Assert
-            logicaDeCalculos.Received(1).ActualizarPuntuacion(2);
-            boton.AumentandoPuntuacion();
-            logicaDeCalculos.Received(1).ActualizarPuntuacion(2);
+            logicaDeCalculos.Received(2).ActualizarPuntuacion(2);
 
         }
         
