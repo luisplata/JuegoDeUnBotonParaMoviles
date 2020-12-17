@@ -33,6 +33,7 @@ public class ManejadorDeMusica : IManejadorDeMusica
         await Task.Delay(TimeSpan.FromSeconds(length));
         QuitarMusica();
         fuente.clip = loop;
+        fuente.loop = true;
         fuente.Play();
     }
 

@@ -7,6 +7,7 @@ public class InstalerServiceLocator : MonoBehaviour
     [SerializeField] private Image cortina;
     [SerializeField] private AudioClip intro, loop, ending, complet;
     [SerializeField] private AudioSource fuente;
+    [SerializeField] private GameObject ObjetoCompletoDeMenu;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,7 +30,10 @@ public class InstalerServiceLocator : MonoBehaviour
         var manejadorMusica = new ManejadorDeMusica(intro, loop, ending, complet, fuente);
         ServiceLocator.Instance.RegisterService<IManejadorDeMusica>(manejadorMusica);
 
+        var manejadorDePausa = new ManejadorDeOpcionDeMenu(ObjetoCompletoDeMenu);
+        ServiceLocator.Instance.RegisterService<IManejadorDeOpcionesDeMenu>(manejadorDePausa);
+
         DontDestroyOnLoad(gameObject);
     }
-
+    
 }

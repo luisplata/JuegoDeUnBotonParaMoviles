@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
 {
-    [SerializeField] private Button boton;
+    [SerializeField] private Button boton, botonDeOpciones;
     [SerializeField] private TextMeshProUGUI textoPuntuacion;
     [SerializeField] private float tiempoQueTieneQueDejarDePrecionarElBoton;
     [SerializeField] private Sprite caramellDancenLeft, caramellDancenRight, caramellDancenCenter;
@@ -43,6 +43,9 @@ public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
     {
         logicaBoton = new Boton(this);
         boton.onClick.AddListener(() => { logicaBoton.AumentandoPuntuacion(); });
+        botonDeOpciones.onClick.AddListener(() => {
+            ServiceLocator.Instance.GetService<IManejadorDeOpcionesDeMenu>().UtilizarMenuDeOpciones();
+        });
         logicaBoton.YaGuardoData = true;
         BailandoCenter();
         ServiceLocator.Instance.GetService<IManejadorDeMusica>().ComenzarLaMusicaLoopeada();
