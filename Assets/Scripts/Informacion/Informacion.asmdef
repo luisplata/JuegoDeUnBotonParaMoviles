@@ -1,0 +1,15 @@
+{
+    "name": "Informacion",
+    "references": [
+        "GUID:7bfc077c20ccb6b41a95c25ea603c164"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
