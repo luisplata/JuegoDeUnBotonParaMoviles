@@ -45,6 +45,7 @@ public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
         boton.onClick.AddListener(() => { logicaBoton.AumentandoPuntuacion(); });
         logicaBoton.YaGuardoData = true;
         BailandoCenter();
+        ServiceLocator.Instance.GetService<IManejadorDeMusica>().ComenzarLaMusicaLoopeada();
     }
 
     private void Update()

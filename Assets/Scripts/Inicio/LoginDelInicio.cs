@@ -7,12 +7,7 @@ public class LoginDelInicio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ServiceLocator.Instance.GetService<IManejadorDeMusica>().ComenzarMusicaCompleta();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

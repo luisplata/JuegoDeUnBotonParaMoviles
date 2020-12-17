@@ -14,6 +14,7 @@ public class ControladorDeBotones : MonoBehaviour
     }
     public void CargarEscena(int escenaIndex)
     {
+        ServiceLocator.Instance.GetService<IManejadorDeMusica>().QuitarMusica();
         ServiceLocator.Instance.GetService<ITransicionEscenaMono>().OnTransicion(escenaIndex);
     }
 }
