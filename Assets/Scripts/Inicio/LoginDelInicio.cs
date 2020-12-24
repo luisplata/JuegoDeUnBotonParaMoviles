@@ -17,5 +17,12 @@ public class LoginDelInicio : MonoBehaviour
     {
         ServiceLocator.Instance.GetService<IManejadorDeOpcionesDeMenu>().UtilizarMenuDeOpciones();
     }
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ServiceLocator.Instance.GetService<IManejadorDeMusica>().QuitarMusica();
+            ServiceLocator.Instance.GetService<ITransicionEscenaMono>().OnTransicion(-1);
+        }
+    }
 }

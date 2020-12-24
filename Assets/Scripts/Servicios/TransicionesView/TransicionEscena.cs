@@ -1,4 +1,5 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TransicionEscena : ITransicionEscenaMono
@@ -21,6 +22,11 @@ public class TransicionEscena : ITransicionEscenaMono
     public void OnTransicion()
     {
         logicaTransicion.OnTransicionEnter();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public TransicionEscena(Image _cortina)
