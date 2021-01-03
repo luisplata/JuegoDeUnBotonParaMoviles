@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +9,9 @@ public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
     [SerializeField] private Button boton, botonDeOpciones;
     [SerializeField] private TextMeshProUGUI textoPuntuacion;
     [SerializeField] private float tiempoQueTieneQueDejarDePrecionarElBoton;
-    [SerializeField] private Sprite caramellDancenLeft, caramellDancenRight, caramellDancenCenter;
-    [SerializeField] private SpriteRenderer dancer;
+    [SerializeField] private List<MovimientoDeDancer> dancers;
+    [SerializeField] private CalculoDeArea area;
+    [SerializeField] private GameObject prefabDancer;
     private Boton logicaBoton;
     private float deltaTimeLocal;
     
@@ -18,19 +21,17 @@ public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
         textoPuntuacion.text = puntuacion.ToString();
     }
 
-    public void BailandoCenter()
+    public void InstanciarDancer(Vector2 crearObjectoDentroDelCuadrado)
     {
-        dancer.sprite = caramellDancenCenter;
+        dancers.Add(Instantiate(prefabDancer, crearObjectoDentroDelCuadrado, Quaternion.identity).GetComponent<MovimientoDeDancer>());
     }
 
-    public void BailandoLeft()
+    public void PonerBailarDancers()
     {
-        dancer.sprite = caramellDancenLeft;
-    }
-
-    public void BailandoRight()
-    {
-        dancer.sprite = caramellDancenRight;
+        foreach(IMovimientoDeDancerMono m in dancers)
+        {
+            m.CambioDeLado();
+        }
     }
 
     public void ReinciarTiempoDeEspera()
@@ -41,13 +42,14 @@ public class AccionDelBoton : MonoBehaviour, IAccionDelBotonMono
     // Start is called before the first frame update
     public void Start()
     {
-        logicaBoton = new Boton(this);
-        boton.onClick.AddListener(() => { logicaBoton.AumentandoPuntuacion(); });
+        logicaBoton = new Boton(this, area);
+        boton.onClick.AddListener(() => {
+            logicaBoton.AumentandoPuntuacion();
+        });
         botonDeOpciones.onClick.AddListener(() => {
             ServiceLocator.Instance.GetService<IManejadorDeOpcionesDeMenu>().UtilizarMenuDeOpciones();
         });
         logicaBoton.YaGuardoData = true;
-        BailandoCenter();
         ServiceLocator.Instance.GetService<IManejadorDeMusica>().ComenzarLaMusicaLoopeada();
     }
 

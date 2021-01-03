@@ -9,27 +9,19 @@ public class Boton
 
     private bool orientacion;
 
-    public Boton(IAccionDelBotonMono accionDelBotonMono)
+    private ICalculoDeArea calculoArea;
+
+    public Boton(IAccionDelBotonMono accionDelBotonMono, ICalculoDeArea area)
     {
         this.accionDelBotonMono = accionDelBotonMono;
         YaGuardoData = false;
         var puntuacion = ServiceLocator.Instance.GetService<ILogicaDeCalculoDePuntuaciones>().GetPuntuacion();
         accionDelBotonMono.ActualizarPuntuacion(puntuacion);
+        calculoArea = area;
     }
-
 
     public void AumentandoPuntuacion()
     {
-        if (orientacion)
-        {
-            accionDelBotonMono.BailandoLeft();
-        }
-        else
-        {
-            accionDelBotonMono.BailandoRight();
-        }
-        orientacion = !orientacion;
-
         int puntuacion = ServiceLocator.Instance.GetService<ILogicaDeCalculoDePuntuaciones>().AumentarPuntuacion();
 
         accionDelBotonMono.ActualizarPuntuacion(puntuacion);
@@ -42,13 +34,10 @@ public class Boton
             //TODO aqui hay que guardar pero en la nube
             YaGuardoData = true;
         }
-        ContadorParaCentralizar().WrapErrors();
-    }
 
-    private async Task ContadorParaCentralizar()
-    {
-        await Task.Delay(TimeSpan.FromMilliseconds(100));
-        accionDelBotonMono.BailandoCenter();
+        accionDelBotonMono.InstanciarDancer(calculoArea.CrearObjectoDentroDelCuadrado());
+
+        accionDelBotonMono.PonerBailarDancers();
     }
 
     public void TerminoElTiempoDeEsperaParaQueGuardeEnLaNube(float deltaTimeLocal, 

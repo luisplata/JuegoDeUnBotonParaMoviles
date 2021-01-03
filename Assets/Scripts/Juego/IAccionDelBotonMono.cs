@@ -1,8 +1,10 @@
-﻿public interface IAccionDelBotonMono
+﻿using System;
+using UnityEngine;
+
+public interface IAccionDelBotonMono
 {
     void ActualizarPuntuacion(int puntuacion);
     void ReinciarTiempoDeEspera();
-    void BailandoLeft();
-    void BailandoRight();
-    void BailandoCenter();
+    void PonerBailarDancers();
+    void InstanciarDancer(Vector2 crearObjectoDentroDelCuadrado);
 }

@@ -20,7 +20,8 @@ namespace Tests
             ServiceLocator.Instance.RegisterService(logicaDeCalculos);
 
             var subAccionMono = Substitute.For<IAccionDelBotonMono>();
-            Boton boton = new Boton(subAccionMono);
+            var area = Substitute.For<ICalculoDeArea>();
+            Boton boton = new Boton(subAccionMono,area);
 
             //act
             boton.AumentandoPuntuacion();
@@ -41,8 +42,8 @@ namespace Tests
             ServiceLocator.Instance.RegisterService(logicaDeCalculos);
 
             var subAccionMono = Substitute.For<IAccionDelBotonMono>();
-
-            Boton boton = new Boton(subAccionMono)
+            var area = Substitute.For<ICalculoDeArea>();
+            Boton boton = new Boton(subAccionMono, area)
             {
                 YaGuardoData = false
             };
