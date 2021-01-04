@@ -6,10 +6,12 @@ public class Boton
     private IAccionDelBotonMono accionDelBotonMono;
 
     public bool YaGuardoData { get; set; }
-
-    private bool orientacion;
+    public float TiempoQueTieneQueDejarDePrecionarElBoton { get; set; }
+    public int CadaCuantosPuntos { get; set; }
 
     private ICalculoDeArea calculoArea;
+    private float deltaTimeLocal;
+    private int puntuacionLocal;
 
     public Boton(IAccionDelBotonMono accionDelBotonMono, ICalculoDeArea area)
     {
@@ -23,9 +25,9 @@ public class Boton
     public void AumentandoPuntuacion()
     {
         int puntuacion = ServiceLocator.Instance.GetService<ILogicaDeCalculoDePuntuaciones>().AumentarPuntuacion();
-
+        puntuacionLocal++;
         accionDelBotonMono.ActualizarPuntuacion(puntuacion);
-        accionDelBotonMono.ReinciarTiempoDeEspera();
+        ReinciarTiempoDeEspera();
 
         ServiceLocator.Instance.GetService<ILogicaDeCalculoDePuntuaciones>().ActualizarPuntuacion(puntuacion);
 
@@ -34,18 +36,27 @@ public class Boton
             //TODO aqui hay que guardar pero en la nube
             YaGuardoData = true;
         }
-
-        accionDelBotonMono.InstanciarDancer(calculoArea.CrearObjectoDentroDelCuadrado());
+        if(puntuacionLocal % CadaCuantosPuntos == 0)
+        {
+            accionDelBotonMono.InstanciarDancer(calculoArea.CalcularPosicionDentroDelCuadrado());
+        }
 
         accionDelBotonMono.PonerBailarDancers();
     }
 
-    public void TerminoElTiempoDeEsperaParaQueGuardeEnLaNube(float deltaTimeLocal, 
-        float tiempoQueTieneQueDejarDePrecionarElBoton)
+    public void TerminoElTiempoDeEsperaParaQueGuardeEnLaNube(float deltaTime)
     {
-        if (deltaTimeLocal >= tiempoQueTieneQueDejarDePrecionarElBoton && YaGuardoData)
+        deltaTimeLocal += deltaTime;
+        if (deltaTimeLocal >= TiempoQueTieneQueDejarDePrecionarElBoton && YaGuardoData)
         {
             YaGuardoData = false;
+            accionDelBotonMono.QuitarLosDemasDancers();
+            puntuacionLocal = 0;
         }
+    }
+
+    public void ReinciarTiempoDeEspera()
+    {
+        deltaTimeLocal = 0;
     }
 }

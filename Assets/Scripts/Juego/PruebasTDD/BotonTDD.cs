@@ -21,14 +21,17 @@ namespace Tests
 
             var subAccionMono = Substitute.For<IAccionDelBotonMono>();
             var area = Substitute.For<ICalculoDeArea>();
-            Boton boton = new Boton(subAccionMono,area);
+            Boton boton = new Boton(subAccionMono, area)
+            {
+                TiempoQueTieneQueDejarDePrecionarElBoton = 2,
+                CadaCuantosPuntos = 1
+            };
 
             //act
             boton.AumentandoPuntuacion();
 
             //assert
             subAccionMono.Received(1).ActualizarPuntuacion(2);
-            subAccionMono.Received(1).ReinciarTiempoDeEspera();
         }
 
         [Test]
@@ -45,7 +48,9 @@ namespace Tests
             var area = Substitute.For<ICalculoDeArea>();
             Boton boton = new Boton(subAccionMono, area)
             {
-                YaGuardoData = false
+                YaGuardoData = false,
+                TiempoQueTieneQueDejarDePrecionarElBoton = 2,
+                CadaCuantosPuntos = 1
             };
 
             //act

@@ -225,10 +225,13 @@ MonoBehaviour:
   textoPuntuacion: {fileID: 1093980361}
   tiempoQueTieneQueDejarDePrecionarElBoton: 2
   dancers:
-  - {fileID: 1088276851}
+  - {fileID: 984697262}
+  cadaCuantosPuntos: 5
   area: {fileID: 194415681}
   prefabDancer: {fileID: 2916997114125446106, guid: 07746950d3f2cbe449b3d008110ea2df,
     type: 3}
+  dancerConfiguration: {fileID: 11400000, guid: 987f23e99bc29194e99cef5f10bc11ee,
+    type: 2}
 --- !u!4 &194415680
 Transform:
   m_ObjectHideFlags: 0
@@ -602,6 +605,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804222920}
   m_CullTransparentMesh: 0
+--- !u!114 &984697262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7975175773966486063, guid: 07746950d3f2cbe449b3d008110ea2df,
+    type: 3}
+  m_PrefabInstance: {fileID: 2916997115671032851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab00b3af70f62b4ba5215344bf69e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1006919527
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,18 +805,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071277903}
   m_CullTransparentMesh: 0
---- !u!114 &1088276851 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2916997114125446105, guid: 07746950d3f2cbe449b3d008110ea2df,
-    type: 3}
-  m_PrefabInstance: {fileID: 2916997115671032851}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808bd71df08932e4ca81eb72da297d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1093980359
 GameObject:
   m_ObjectHideFlags: 0

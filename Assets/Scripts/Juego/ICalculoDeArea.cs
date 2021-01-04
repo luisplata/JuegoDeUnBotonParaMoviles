@@ -2,5 +2,5 @@
 
 public interface ICalculoDeArea
 {
-    Vector2 CrearObjectoDentroDelCuadrado();
+    Vector2 CalcularPosicionDentroDelCuadrado();
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bd11b0c892094469bb7868d3b7ab05, type: 3}
+  m_Name: DancersConfig
+  m_EditorClassIdentifier: 
+  dancers:
+  - {fileID: 7975175773966486063, guid: 07746950d3f2cbe449b3d008110ea2df, type: 3}
+  - {fileID: 7975175773966486063, guid: 064ec2f6be9491f4bb118ea58ce52d50, type: 3}

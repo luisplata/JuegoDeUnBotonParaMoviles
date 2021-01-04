@@ -7,7 +7,7 @@ public class CalculoDeArea : MonoBehaviour, ICalculoDeArea
 {
     [SerializeField] private GameObject a, b, c, d;
 
-    public Vector2 CrearObjectoDentroDelCuadrado()
+    public Vector2 CalcularPosicionDentroDelCuadrado()
     {
         var x = CalcularX();
         var y = CalcularY();

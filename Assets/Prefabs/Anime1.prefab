@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2916997114125446111}
   - component: {fileID: 2916997114125446104}
-  - component: {fileID: 2916997114125446105}
+  - component: {fileID: 7975175773966486063}
   m_Layer: 0
-  m_Name: Dancer
+  m_Name: Anime1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2916997114125446105
+--- !u!114 &7975175773966486063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2916997114125446106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808bd71df08932e4ca81eb72da297d7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ab00b3af70f62b4ba5215344bf69e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: anime1
   left:
   - {fileID: -7549565990131272523, guid: 1869ed71371cbbd45a9f45f30688deba, type: 3}
   - {fileID: -8036093327607760740, guid: 1869ed71371cbbd45a9f45f30688deba, type: 3}
