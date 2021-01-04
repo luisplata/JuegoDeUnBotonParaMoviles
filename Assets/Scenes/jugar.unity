@@ -226,7 +226,7 @@ MonoBehaviour:
   tiempoQueTieneQueDejarDePrecionarElBoton: 2
   dancers:
   - {fileID: 984697262}
-  cadaCuantosPuntos: 5
+  cadaCuantosPuntos: 20
   area: {fileID: 194415681}
   prefabDancer: {fileID: 2916997114125446106, guid: 07746950d3f2cbe449b3d008110ea2df,
     type: 3}
